@@ -197,7 +197,21 @@ public class ProductOperations {
 
     }
 
-    public double getTotalProductValues(){
-        return totalProductValue;
+    public double getTotalProductsValue() {
+        double totalProductsValue = productSet.stream()
+                .mapToDouble((product) -> product.price())
+                .sum();
+
+        return totalProductsValue;
+
+		/* double totalProductsValue = 0.0;
+
+		 for (Product product : productsSet) {
+			var price = product.price();
+
+			totalProductsValue += price;
+		}
+
+		return totalProductsValue;*/
     }
 }
